@@ -1,3 +1,4 @@
+// config
 const config = {
     dev: {
         postsdir: './content',
