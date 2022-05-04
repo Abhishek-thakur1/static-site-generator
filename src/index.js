@@ -11,3 +11,4 @@ if (!fs.existsSync(config.dev.outdir)) fs.mkdirSync(config.dev.outdir)
 
 postMethods.createPosts(posts);
 
+console.log('\nHi, This is STATIC SITE GENERATOR........... \n')
