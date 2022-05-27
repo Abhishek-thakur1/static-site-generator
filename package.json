@@ -1,20 +1,37 @@
 {
-  "name": "staticsitegenerator",
+  "name": "catsgo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A simple Static Site Generator",
+  "main": "src/index.js",
+  "bin": "./bin/cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./src/index.js",
     "build": "node ./src/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ssg",
+    "static site generator",
+    "gatsgo"
+  ],
+  "author": "Abhishek Thakur",
+  "license": "MIT",
   "dependencies": {
     "front-matter": "^4.0.2",
     "highlight.js": "^11.5.1",
     "marked": "^4.0.14",
     "nodemon": "^2.0.16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhishek-thakur1/static-site-generator"
+  },
+  "bugs": {
+    "url": "https://github.com/Abhishek-thakur1/static-site-generator/issues"
+  },
+  "home": {
+    "url": "https://github.com/Abhishek-thakur1/static-site-generator#readme"
   }
+  
+  
 }

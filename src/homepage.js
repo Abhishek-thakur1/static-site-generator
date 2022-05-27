@@ -1,3 +1,5 @@
+
+
 const config = require("./config");
 const fs = require("fs");
 
@@ -17,26 +19,35 @@ const homepage = (posts) => `
             <header>
                 <h1>${config.blogName}</h1>
                 <p>—</p>
-                <p>This blog is written by <a href="${config.authorWebsite}">${config.authorName}</a>, ${config.authorDescription}.</p>
+                <p>This blog is written by <a href="${config.authorWebsite}">${
+  config.authorName
+}</a>, ${config.authorDescription}.</p>
                 <hr />
             </header>
             
             <div class="posts">
-                ${posts.map(
-                    (post) =>   `<div class="post">
+                ${posts
+                  .map(
+                    (post) => `<div class="post">
                                     <h3>
-                                        <a href="./${post.path}">${post.attributes.title}</a>
+                                        <a href="./${post.path}">${
+                      post.attributes.title
+                    }</a>
                                     </h3>
                                     <small>${new Date(
-                                        parseInt(post.attributes.date)).toDateString()}
+                                      parseInt(post.attributes.date)
+                                    ).toDateString()}
                                     </small>
                                     <p>${post.attributes.description}</p>
                                 </div>`
-                ).join("")}
+                  )
+                  .join("")}
             </div>
 
             <footer>
-                ${`<p>© ${new Date().getFullYear()} ${config.authorName}, Find the code on <a href="https://github.com/Abhishek-thakur1/static-site-generator">GitHub</a></p>`}
+                ${`<p>© ${new Date().getFullYear()} ${
+                  config.authorName
+                }, Find the code on <a href="https://github.com/Abhishek-thakur1/static-site-generator">GitHub</a></p>`}
             </footer>
         </div>
     </body>
@@ -44,10 +55,10 @@ const homepage = (posts) => `
 `;
 
 const addHomePage = (posts) => {
-    fs.writeFile(`${config.dev.outdir}/index.html`, homepage(posts), (e) => {
-        if (e) throw e;
-        console.log(`index.html was created successfully`);
-    });
+  fs.writeFile(`${config.dev.outdir}/index.html`, homepage(posts), (e) => {
+    if (e) throw e;
+    console.log(`index.html was created successfully`);
+  });
 };
 
 module.exports = addHomePage;

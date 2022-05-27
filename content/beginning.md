@@ -1,5 +1,7 @@
+#! /usr/bin/env node
+
 ---
-title: Why I'm starting a blog
+title: Why I'm starting a blogggg
 date: "1651689565000"
 description: My reasons for starting a blog.
 ---

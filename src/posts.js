@@ -1,8 +1,8 @@
-const config = require('./config')
-const fm = require('front-matter')
-const {marked} = require('./marked')
-const fs = require('fs')
 
+const config = require("./config");
+const fm = require("front-matter");
+const { marked } = require("./marked");
+const fs = require("fs");
 
 // take the JSON and return a HTML page...
 const posthtml = (data) => `
@@ -27,7 +27,7 @@ const posthtml = (data) => `
             <div class="content">
                 <h1>${data.attributes.title}</h1>
                 <p>${new Date(
-                    parseInt(data.attributes.date)
+                  parseInt(data.attributes.date)
                 ).toDateString()}</p>
                 <hr />
                 ${data.body}
@@ -35,7 +35,7 @@ const posthtml = (data) => `
 
             <footer>
                 ${`<p>© ${new Date().getFullYear()} ${
-                    config.authorName
+                  config.authorName
                 }, Find the code on <a href="https://github.com/Abhishek-thakur1/static-site-generator">GitHub</a></p>`}
             </footer>
         </div>
@@ -44,31 +44,32 @@ const posthtml = (data) => `
 `;
 
 //createPost(), uses front-matter to take the content of the file and give us an object...
-const createPost = postPath => {
-    const data = fs.readFileSync(`${config.dev.postsdir}/${postPath}.md`, 'utf8')
-    const content  = fm(data)
-    content.body = marked(content.body)
-    content.path = postPath
-    return content
-}
+const createPost = (postPath) => {
+  const data = fs.readFileSync(`${config.dev.postsdir}/${postPath}.md`, "utf8");
+  const content = fm(data);
+  content.body = marked(content.body);
+  content.path = postPath;
+  return content;
+};
 
 // take the output of the createPost() function and then generate HTML file..
-const createPosts = posts => {
-    posts.forEach(post => {
-        if (!fs.existsSync(`${config.dev.outdir}/${post.path}`)) fs.mkdirSync(`${config.dev.outdir}/${post.path}`);
-        
-        fs.writeFile(
-            `${config.dev.outdir}/${post.path}/index.html`,
-            posthtml(post),
-            e => {
-                if (e) throw e
-                console.log(`${post.path}/index.html created successfully!`)
-            }
-        )
-    })
-}
+const createPosts = (posts) => {
+  posts.forEach((post) => {
+    if (!fs.existsSync(`${config.dev.outdir}/${post.path}`))
+      fs.mkdirSync(`${config.dev.outdir}/${post.path}`);
+
+    fs.writeFile(
+      `${config.dev.outdir}/${post.path}/index.html`,
+      posthtml(post),
+      (e) => {
+        if (e) throw e;
+        console.log(`${post.path}/index.html created successfully!`);
+      }
+    );
+  });
+};
 
 module.exports = {
-    createPost: createPost,
-    createPosts: createPosts
-}
+  createPost: createPost,
+  createPosts: createPosts,
+};
