@@ -10,8 +10,8 @@ const config = {
     authorWebsite: 'https://linkedin.com/in/abhishek-thakur-785201192',
 
     dev: {
-        postsdir: '../content',
-        outdir: '../public'
+        postsdir: 'content',
+        outdir: 'public'
     }
 }
 
