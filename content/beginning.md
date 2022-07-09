@@ -1,5 +1,3 @@
-#! /usr/bin/env node
-
 ---
 title: Why I'm starting a blogggg
 date: "1651689565000"

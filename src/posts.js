@@ -1,8 +1,8 @@
 
 const config = require("./config");
 const fm = require("front-matter");
-const { marked } = require("./marked");
 const fs = require("fs");
+const {marked} = require("./marked");
 
 // take the JSON and return a HTML page...
 const posthtml = (data) => `
