@@ -1,6 +1,6 @@
 {
   "name": "catsgo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple Static Site Generator",
   "main": "src/index.js",
   "bin": "./bin/cli.js",
@@ -32,6 +32,4 @@
   "home": {
     "url": "https://github.com/Abhishek-thakur1/static-site-generator#readme"
   }
-  
-  
 }
